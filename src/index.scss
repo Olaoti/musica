@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+@import "./styles/variables";
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body {
+  background-color: white;
+  font-family:"Quicksand", sans-serif;
+  color: white;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+@import "./styles/components/header.scss";
+@import "./styles/components/sidebar.scss";
+@import "./styles/components/main.scss";
+@import "./styles/components/topcharts.scss";
+@import "./styles/components/tops.scss";
+@import "./styles/components/playing.scss";
+
+
+@import "./styles/pages/home.scss";
+

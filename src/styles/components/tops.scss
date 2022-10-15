@@ -1,0 +1,43 @@
+.tops{
+    padding: 1rem 0;
+    .head{
+        padding: 2.3rem 0 1.3rem;
+    }
+    .songs{
+        display: flex;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        &::-webkit-scrollbar{
+            display: none;
+            scrollbar-width: none;
+        }
+        .song{
+            padding-right:3rem;
+            &__img{
+                width: 15rem;
+                height: 15rem;
+                transition: all 300ms ease;
+                &:hover{
+                    transition: all 300ms ease;
+                    transform: scale(1.1);
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit:fill;
+                    border-radius: 2.5rem;
+                }
+            }
+            &__title{
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+                text-transform: capitalize;
+                padding: .5rem 0;
+            }
+            &__artist{
+                text-transform: capitalize;
+                padding-bottom: .5rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+.head{
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 2.88rem;
+}
+.topcharts{
+    margin-left: 2.4rem;
+    .songs{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        .song{
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            padding: 1.7rem;
+            background-color: $color-dark;
+            border-radius: 2rem;
+            &__image{
+                margin-right: 1.4rem;
+                max-width: 15%;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit:contain;
+                    border-radius: 1.2rem;
+                }
+            }
+            &__info{
+                &__title{
+                    font-size: 1.7rem;
+                    line-height: 2rem;
+                }
+                &__artist{
+                    padding: .4rem 0 .8rem;
+                    font-size: 1.2rem;
+                    line-height: 1.45rem;
+                    color: rgba(255,255,255,.5);
+                }
+                &__time{
+                    font-size: 1.2rem;
+                    line-height: 1.4rem; 
+                }
+            }
+            &__loved{
+                margin-left: auto;
+                width: fit-content;
+                height: fit-content;
+                border: 1px solid #FACD66;
+                border-radius: 50%;
+                &__icon{
+                    margin: .5rem;
+                    display: grid;
+                    place-items: center;
+                    transition: all 300ms ease;
+                    &:hover{
+                        transform: scale(0.85);
+                        transition: all 300ms ease;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    padding: 2.5rem 4rem 1.5rem 0 ;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    background-color: $color-bg;
+    .musicicon{
+    padding-right: 2.9rem;
+    margin-left: -5rem;
+    }
+    .searchbar{
+        display: flex;
+        padding: 1rem 3rem;
+        font-size: 1.4rem;
+        align-items: center;
+        width: 100%;
+        input{
+            background-color: transparent;
+            color: white;
+            outline: none;
+            border: none;
+            padding-left: 1rem;
+            width: 100%;
+        }
+    }
+}
