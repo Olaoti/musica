@@ -8,7 +8,6 @@ import { ReactComponent as Repeat1 } from "../assets/icons/repeat1.svg";
 import { ReactComponent as Volume } from "../assets/icons/volume.svg";
 import { ReactComponent as Replay } from "../assets/icons/replay.svg";
 import { ReactComponent as Pause } from "../assets/icons/pause.svg";
-import ReactSlider from "react-slider";
 
 import Currentno from "./Currentno";
 import Musiclist from "./Musiclist";
@@ -20,7 +19,6 @@ const Playing = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   //const [percentDuration, setPercent] = useState(0);
-  const [shuffle, setShuffle] = useState(true);
   const [repeat, setRepeat] = useState(true);
   const [volume, setVolume] = useState(0.5);
   useEffect(() => {
@@ -30,7 +28,7 @@ const Playing = () => {
     } else {
       audioplayingRef.current.play();
     }
-  }, [pause, number]);
+  }, [pause, number, volume]);
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(audioplayingRef.current.currentTime);
@@ -90,8 +88,13 @@ const Playing = () => {
         </div>
         <div className="control">
           <div className="control__changes">
-            <div className="icon" onClick={() => setShuffle(!shuffle)}>
-              {shuffle ? <Shuffle fill="white" /> : <Replay fill="white" />}
+            <div
+              className="icon"
+              onClick={() =>
+                setNumber(Math.floor(Math.random() * Musiclist.length))
+              }
+            >
+              <Shuffle fill="white" />
             </div>
             <div className="icon" onClick={prevClick}>
               <Previous fill="white" />
@@ -118,16 +121,14 @@ const Playing = () => {
           <div className="slidecontainer">
             <input
               id="music-range"
-              class="range"
+              className="range"
               type="range"
               min="1"
               max={`${duration}`}
               value={progress}
               onChange={({ target: { value: radius } }) => {
                 setProgress(radius);
-                audioplayingRef.current.currentTime =
-                  (radius * audioplayingRef.current.duration) / 100;
-                console.log(radius);
+                audioplayingRef.current.currentTime = radius;
               }}
             />
           </div>
@@ -139,7 +140,7 @@ const Playing = () => {
           <div className="slidecontainer">
             <input
               id="volume-range"
-              class="range"
+              className="range"
               type="range"
               min="0"
               max="100"

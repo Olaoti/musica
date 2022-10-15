@@ -19,6 +19,10 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
+.link{
+  color: inherit;
+  text-decoration: none;
+}
 @import "./styles/components/header.scss";
 @import "./styles/components/sidebar.scss";
 @import "./styles/components/main.scss";
@@ -28,4 +32,4 @@ body {
 
 
 @import "./styles/pages/home.scss";
-
+@import "./styles/pages/album.scss";

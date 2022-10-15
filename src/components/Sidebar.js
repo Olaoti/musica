@@ -11,24 +11,48 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="toplinks">
         <div>
-          <Homesvg fill="#FACD66" />
+          <Homesvg
+            fill="#FACD66"
+            viewBox="0 0 50 50"
+            style={{ width: "50px", height: "50px" }}
+          />
         </div>
         <div>
-          <Collectionsvg fill="#aaa" />
+          <Collectionsvg
+            fill="#aaa"
+            viewBox="0 0 50 50"
+            style={{ width: "50px", height: "50px" }}
+          />
         </div>
         <div>
-          <Radiosvg fill="#EFEEE0" />
+          <Radiosvg
+            fill="#EFEEE0"
+            viewBox="0 0 50 50"
+            style={{ width: "50px", height: "50px" }}
+          />
         </div>
         <div>
-          <Videosvg fill="#EFEEE0" />
+          <Videosvg
+            fill="#EFEEE0"
+            viewBox="0 0 50 50"
+            style={{ width: "50px", height: "50px" }}
+          />
         </div>
       </div>
       <div className="downlinks">
         <div>
-          <Personsvg fill="#EFEEE0" />
+          <Personsvg
+            fill="#EFEEE0"
+            viewBox="0 0 50 50"
+            style={{ width: "50px", height: "50px" }}
+          />
         </div>
         <div>
-          <Logoutsvg fill="#EFEEE0" />
+          <Logoutsvg
+            fill="#EFEEE0"
+            viewBox="0 0 50 50"
+            style={{ width: "50px", height: "50px" }}
+          />
         </div>
       </div>
     </div>

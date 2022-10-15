@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import img1 from "../assets/images/album/img1.png";
+/*import img1 from "../assets/images/album/img1.png";
 import img2 from "../assets/images/album/img2.png";
 import img3 from "../assets/images/album/img3.png";
 import img4 from "../assets/images/album/img4.png";
@@ -8,12 +8,12 @@ import img6 from "../assets/images/album/img6.png";
 import img7 from "../assets/images/album/img7.png";
 import img8 from "../assets/images/album/img8.png";
 import img9 from "../assets/images/album/img9.png";
-import img10 from "../assets/images/album/img10.png";
+import img10 from "../assets/images/album/img10.png";*/
 import Musiclist from "./Musiclist";
-import Currentno from "./Currentno"
+import Currentno from "./Currentno";
 
 const Tops = () => {
-  const musics = [
+  /*const musics = [
     {
       id: 1,
       img: img9,
@@ -74,10 +74,12 @@ const Tops = () => {
       title: "golden age of 80's",
       artist: "DJ YK mule",
     },
-  ];
+  ];*/
   const [list, setList] = useState(Musiclist);
-  const [number, setNumber] = useState(Currentno)
-  console.log(number)
+  const [number, setNumber] = useState(Currentno);
+  const newNo = (id) => {
+    setNumber(id);
+  };
   /*useEffect(() => {
     const options = {
       method: "GET",
@@ -95,14 +97,17 @@ const Tops = () => {
       .then((response) => setList(response.tracks))
       .catch((err) => console.error(err));
   }, []);*/
-
   return (
     <div className="tops">
       <div className="head">New Releases</div>
       <div className="songs">
         {list.map((music) => {
           return (
-            <div className="song" key={music.id} onClick={()=>setNumber(music.id)} >
+            <div
+              className="song"
+              key={music.id}
+              onClick={() => newNo(music.id)}
+            >
               <div className="song__img">
                 <img src={music.img} alt="" />
               </div>
@@ -114,7 +119,7 @@ const Tops = () => {
       </div>
       <div className="head">Popular in your area</div>
       <div className="songs">
-        {musics.map((music) => {
+        {list?.map((music) => {
           return (
             <div className="song" key={music.id}>
               <div className="song__img">

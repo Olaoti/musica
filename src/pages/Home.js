@@ -4,7 +4,6 @@ import Sidebar from "../components/Sidebar";
 import Main from "../components/Main";
 import Topcharts from "../components/Topcharts";
 import Tops from "../components/Tops";
-import Playing from "../components/Playing";
 
 const Home = () => {
   return (
@@ -18,7 +17,6 @@ const Home = () => {
         </div>
       </div>
       <Tops />
-      <Playing />
     </div>
   );
 };
