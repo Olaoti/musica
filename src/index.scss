@@ -23,6 +23,9 @@ body {
   color: inherit;
   text-decoration: none;
 }
+.btn{
+  cursor: pointer;
+}
 @import "./styles/components/header.scss";
 @import "./styles/components/sidebar.scss";
 @import "./styles/components/main.scss";
@@ -33,3 +36,5 @@ body {
 
 @import "./styles/pages/home.scss";
 @import "./styles/pages/album.scss";
+@import "./styles/pages/collections.scss";
+

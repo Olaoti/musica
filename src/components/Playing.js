@@ -6,7 +6,6 @@ import { ReactComponent as Shuffle } from "../assets/icons/shuffle.svg";
 import { ReactComponent as Repeat } from "../assets/icons/repeat.svg";
 import { ReactComponent as Repeat1 } from "../assets/icons/repeat1.svg";
 import { ReactComponent as Volume } from "../assets/icons/volume.svg";
-import { ReactComponent as Replay } from "../assets/icons/replay.svg";
 import { ReactComponent as Pause } from "../assets/icons/pause.svg";
 
 import Currentno from "./Currentno";

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as Homesvg } from "../assets/icons/home.svg";
 import { ReactComponent as Collectionsvg } from "../assets/icons/collection.svg";
 import { ReactComponent as Radiosvg } from "../assets/icons/radio.svg";
@@ -11,18 +12,22 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="toplinks">
         <div>
-          <Homesvg
-            fill="#FACD66"
-            viewBox="0 0 50 50"
-            style={{ width: "50px", height: "50px" }}
-          />
+          <Link to="/" className="link">
+            <Homesvg
+              className="homesvg"
+              viewBox="0 0 50 50"
+              style={{ width: "50px", height: "50px" }}
+            />
+          </Link>
         </div>
         <div>
-          <Collectionsvg
-            fill="#aaa"
-            viewBox="0 0 50 50"
-            style={{ width: "50px", height: "50px" }}
-          />
+          <Link to="/collections" className="link">
+            <Collectionsvg
+              className="collectionsvg"
+              viewBox="0 0 50 50"
+              style={{ width: "50px", height: "50px" }}
+            />
+          </Link>
         </div>
         <div>
           <Radiosvg

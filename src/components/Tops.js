@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { Link } from "react-router-dom";
 /*import img1 from "../assets/images/album/img1.png";
 import img2 from "../assets/images/album/img2.png";
 import img3 from "../assets/images/album/img3.png";
@@ -10,7 +10,6 @@ import img8 from "../assets/images/album/img8.png";
 import img9 from "../assets/images/album/img9.png";
 import img10 from "../assets/images/album/img10.png";*/
 import Musiclist from "./Musiclist";
-import Currentno from "./Currentno";
 
 const Tops = () => {
   /*const musics = [
@@ -75,11 +74,7 @@ const Tops = () => {
       artist: "DJ YK mule",
     },
   ];*/
-  const [list, setList] = useState(Musiclist);
-  const [number, setNumber] = useState(Currentno);
-  const newNo = (id) => {
-    setNumber(id);
-  };
+
   /*useEffect(() => {
     const options = {
       method: "GET",
@@ -101,33 +96,35 @@ const Tops = () => {
     <div className="tops">
       <div className="head">New Releases</div>
       <div className="songs">
-        {list.map((music) => {
+        {Musiclist.map((music) => {
           return (
+            <Link to="/album" className="link" state={{newChecked:music.id}} key={music.id}>
             <div
               className="song"
-              key={music.id}
-              onClick={() => newNo(music.id)}
-            >
+              key={music.id}>
               <div className="song__img">
                 <img src={music.img} alt="" />
               </div>
               <div className="song__title">{music.title}</div>
               <div className="song__artist">{music.artist}</div>
             </div>
+            </Link>
           );
         })}
       </div>
       <div className="head">Popular in your area</div>
       <div className="songs">
-        {list?.map((music) => {
+        {Musiclist?.map((music) => {
           return (
-            <div className="song" key={music.id}>
+            <Link to="/album" className="link" state={{newChecked:music.id}} key={music.id}>
+            <div className="song">
               <div className="song__img">
                 <img src={music.img} alt="" />
               </div>
               <div className="song__title">{music.title}</div>
               <div className="song__artist">{music.artist}</div>
             </div>
+            </Link>
           );
         })}
       </div>

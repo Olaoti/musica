@@ -1,4 +1,5 @@
-import React, { useState, useLocation } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import Musiclist from "../components/Musiclist";
@@ -9,6 +10,9 @@ import { ReactComponent as Lovesvg } from "../assets/icons/love.svg";
 import { ReactComponent as Lovefilledsvg } from "../assets/icons/lovefilled.svg";
 
 const Album = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [list, setList] = useState(Musiclist);
   const [checked, setChecked] = useState(0);
   const resetchecked = (id) => {
@@ -37,6 +41,17 @@ const Album = () => {
     }
     setList(newlist);
   };
+  /*set checked from location*/
+  const location = useLocation();
+  const { newChecked } = location.state ? location.state : 0;
+  useEffect(() => {
+    if (newChecked <= Musiclist?.length) {
+      setChecked(newChecked);
+    } else {
+      setChecked(0);
+    }
+  }, [newChecked]);
+
   return (
     <div
       className="album"
@@ -90,7 +105,7 @@ const Album = () => {
           </div>
           <div className="musics">
             {list
-              ?.filter((music) => music.id != checked)
+              ?.filter((music) => music.id !== checked)
               .map((song) => {
                 return (
                   <div className="song" key={song.id}>
