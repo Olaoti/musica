@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
@@ -8,8 +8,13 @@ import { ReactComponent as Playsvg } from "../assets/icons/play.svg";
 import { ReactComponent as Lovedsvg } from "../assets/icons/loved.svg";
 import { ReactComponent as Lovesvg } from "../assets/icons/love.svg";
 import { ReactComponent as Lovefilledsvg } from "../assets/icons/lovefilled.svg";
+import gsap from "gsap";
 
 const Album = () => {
+  const albumRef = useRef(null);
+  useEffect(() => {
+    gsap.fromTo(albumRef.current, { opacity: 0 }, { opacity: 1, duration: 2 });
+  }, [albumRef]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -41,6 +46,11 @@ const Album = () => {
     }
     setList(newlist);
   };
+  const collectionClicked = () => {
+    const newlist = [...list];
+    newlist[checked].collection = true;
+    setList(newlist);
+  };
   /*set checked from location*/
   const location = useLocation();
   const { newChecked } = location.state ? location.state : 0;
@@ -65,7 +75,7 @@ const Album = () => {
       <Header />
       <div className="album__contents">
         <Sidebar />
-        <div className="album__contents__section">
+        <div className="album__contents__section" ref={albumRef}>
           <div className="checked-album">
             <div className="checked-album__img">
               <img src={Musiclist[checked]?.img} alt="" />
@@ -85,11 +95,15 @@ const Album = () => {
                   </span>
                   <span>Play all</span>
                 </div>
-                <div className="btn">
+                <div className="btn" onClick={collectionClicked}>
                   <span className="icon">
                     <Colsvg />
                   </span>
-                  <span>Add to collection</span>
+                  <span>
+                    {Musiclist[checked]?.collection === true
+                      ? "Added to collection"
+                      : "Add to collection"}
+                  </span>
                 </div>
                 <div className="btn">
                   <div className="icon" onClick={clikeClick}>

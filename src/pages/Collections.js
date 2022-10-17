@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+
 import Musiclist from "../components/Musiclist";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { ReactComponent as Play } from "../assets/icons/play2.svg";
 
 const Collections = () => {
+  const colRef = useRef(null);
+  useEffect(() => {
+    gsap.fromTo(colRef.current, { opacity: 0 }, { opacity: 1, duration: 2 });
+  }, [colRef]);
   const [filtervalue, setFilter] = useState("collection");
   const [lists, setLists] = useState();
   const changeFilter = (e) => {
@@ -25,7 +31,7 @@ const Collections = () => {
     <div className="collections">
       <Header />
       <Sidebar />
-      <div className="collections__content">
+      <div className="collections__content" ref={colRef}>
         <div className="filters" onClick={changeFilter}>
           <div
             className={`btn ${filtervalue === "collection" && "filter"}`}
