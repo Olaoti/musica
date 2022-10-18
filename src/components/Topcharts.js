@@ -42,37 +42,42 @@ const Topcharts = () => {
       <div className="songs">
         {newlist.map((music) => {
           return (
-            <Link to="/album" className="link" key={music.id}>
-              <div className="song">
+            <div className="song">
                 <div className="song__image">
+              <Link to="/album" className="link" key={music.id}>
+
                   <img src={music.img} alt="" />
+              </Link>
+
                 </div>
                 <div className="song__info">
+              <Link to="/album" className="link" key={music.id}>
+
                   <div className="song__info__title">{music.title}</div>
                   <div className="song__info__artist">{music.artist}</div>
                   <div className="song__info__time">{music.time}</div>
+                  </Link>
                 </div>
-                <div className="song__loved">
-                  <div className="song__loved__icon">
-                    {liked ? (
-                      <Lovefilledsvg
-                        fill="#FACD66"
-                        onClick={() => {
-                          setLiked(false);
-                        }}
-                      />
-                    ) : (
-                      <Lovesvg
-                        fill="#FACD66"
-                        onClick={() => {
-                          setLiked(true);
-                        }}
-                      />
-                    )}
-                  </div>
+              <div className="song__loved">
+                <div className="song__loved__icon">
+                  {liked ? (
+                    <Lovefilledsvg
+                      fill="#FACD66"
+                      onClick={() => {
+                        setLiked(false);
+                      }}
+                    />
+                  ) : (
+                    <Lovesvg
+                      fill="#FACD66"
+                      onClick={() => {
+                        setLiked(true);
+                      }}
+                    />
+                  )}
                 </div>
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

@@ -79,6 +79,7 @@ const Playing = () => {
           <img src={Musiclist[number]?.img} alt="" />
         </div>
         <div className="songtitle">
+          <span className="hide">{Musiclist[number]?.title} by {Musiclist[number]?.artist}</span>
           {truncate(Musiclist[number]?.title, 15)}{" "}
           <span className="artist">
             {" "}
